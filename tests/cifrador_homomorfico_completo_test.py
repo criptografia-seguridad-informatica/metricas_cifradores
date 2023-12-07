@@ -1,4 +1,4 @@
-from modelo.cifrador_homomorfico_completo import CifradorHomomorficoCompleto
+from ..models.cifrador_homomorfico_completo import CifradorHomomorficoCompleto
 
 def test_cifrador_homomorfico_completo_encripta_un_mensaje():
     numero_a_encriptar = 5
