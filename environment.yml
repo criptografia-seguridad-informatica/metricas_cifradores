@@ -166,6 +166,7 @@ dependencies:
   - rfc3986-validator=0.1.1=py310h06a4308_0
   - rpds-py=0.10.6=py310hb02cf49_0
   - scipy=1.11.4=py310h5f9d8c6_0
+  - seaborn=0.12.2=py310h06a4308_0
   - send2trash=1.8.2=py310h06a4308_0
   - setuptools=68.0.0=py310h06a4308_0
   - sip=6.7.12=py310h6a678d5_0
