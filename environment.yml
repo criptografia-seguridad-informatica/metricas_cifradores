@@ -203,4 +203,3 @@ dependencies:
       - pyfhel==3.4.2
       - pytest==7.4.3
       - tenacity==8.2.3
-prefix: /home/amveiga/anaconda3/envs/metricas_cripto
