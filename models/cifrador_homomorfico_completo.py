@@ -29,4 +29,4 @@ class CifradorHomomorficoCompleto:
         if self.__scheme == 'bfv':
             return self.__fhe.decryptInt(numero_a_desencriptar)[0]
         else:
-            return self.__fhe.decodeFrac(numero_a_desencriptar)[0]
+            return self.__fhe.decryptFrac(numero_a_desencriptar)[0]

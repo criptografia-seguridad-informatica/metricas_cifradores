@@ -1,4 +1,5 @@
 from ..models.cifrador_homomorfico_completo import CifradorHomomorficoCompleto
+from numpy.testing import assert_almost_equal
 
 CKKS_PARAMS = {
     'scheme': 'CKKS',  # can also be 'ckks'
@@ -93,3 +94,13 @@ def test_cifrador_homomorfico_completo_encripta_un_mensaje_float():
     numero_encriptado = cifrador_homomorfico.encriptar(numero_a_encriptar)
 
     assert numero_encriptado != numero_a_encriptar
+
+
+def test_cifrador_homomorfico_completo_desencipta_un_mensaje_float():
+    numero_a_encriptar = 5.5
+
+    cifrador_homomorfico_completo = CifradorHomomorficoCompleto(context_gen_params=CKKS_PARAMS)
+    numero_encriptado = cifrador_homomorfico_completo.encriptar(numero_a_encriptar)
+
+    numero_desencriptado = cifrador_homomorfico_completo.desencriptar(numero_encriptado)
+    assert_almost_equal(numero_desencriptado, numero_a_encriptar, decimal=5, err_msg="Precision muy mala", verbose=True)
