@@ -1,6 +1,22 @@
 from Pyfhel import Pyfhel
 import numpy as np
 
+CKKS_PARAMS = {
+    'scheme': 'CKKS',  # can also be 'ckks'
+    'n': 2 ** 14,  # Polynomial modulus degree. For CKKS, n/2 values can be
+    #  encoded in a single ciphertext.
+    #  Typ. 2^D for D in [10, 15]
+    'scale': 2 ** 30,  # All the encodings will use it for float->fixed point
+    #  conversion: x_fix = round(x_float * scale)
+    #  You can use this as default scale or use a different
+    #  scale on each operation (set in HE.encryptFrac)
+    'qi_sizes': [60, 30, 30, 30, 60]  # Number of bits of each prime in the chain.
+    # Intermediate values should be  close to log2(scale)
+    # for each operation, to have small rounding errors.
+}
+
+BFV_PARAMS = {'scheme': 'bfv', 'n': 2 ** 14, 't_bits': 20}
+
 
 class CifradorHomomorficoCompleto:
     """
@@ -8,8 +24,11 @@ class CifradorHomomorficoCompleto:
     """
 
     def __init__(self, context_gen_params=None):
-        if context_gen_params is None:
-            context_gen_params = {'scheme': 'bfv', 'n': 2 ** 14, 't_bits': 20}
+        if context_gen_params is None or context_gen_params == 'BFV':
+            context_gen_params = BFV_PARAMS
+        elif context_gen_params == 'CKKS':
+            context_gen_params = CKKS_PARAMS
+
         fhe = Pyfhel()
         fhe.contextGen(**context_gen_params)
         fhe.keyGen()

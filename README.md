@@ -2,3 +2,8 @@
 ```Terminal
 conda env create -f environment.yml
 ```
+
+# Si agregas alguna dependencia hacer
+```Terminal
+conda env export --name metricas_cripto > environment.yml
+```

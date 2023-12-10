@@ -9,7 +9,7 @@ def test_cifrador_homomorfico_parcial_encripta_un_mensaje():
 
 
 def test_cifrador_homomorfico_parcial_desencripta_un_mensaje():
-    numero_a_encriptar = 5
+    numero_a_encriptar = 5.5
     cifrador_homomorfico_parcial = CifradorHomomorficoParcial()
     numero_encriptado = cifrador_homomorfico_parcial.encriptar(numero_a_encriptar)
     numero_desencriptado = cifrador_homomorfico_parcial.desencriptar(numero_encriptado)
@@ -17,8 +17,8 @@ def test_cifrador_homomorfico_parcial_desencripta_un_mensaje():
 
 
 def test_suma_de_un_numero_encriptado_y_uno_no_encriptado():
-    numero_a_encriptar = 10
-    numero_no_encriptado = 5
+    numero_a_encriptar = 10.8
+    numero_no_encriptado = 5.16
 
     cifrador_homomorfico_parcial = CifradorHomomorficoParcial()
 
@@ -27,7 +27,7 @@ def test_suma_de_un_numero_encriptado_y_uno_no_encriptado():
     suma_encriptada = numero_encriptado + numero_no_encriptado
     suma_desencriptada = cifrador_homomorfico_parcial.desencriptar(suma_encriptada)
 
-    assert suma_desencriptada == 15
+    assert suma_desencriptada == (numero_a_encriptar+numero_no_encriptado)
 
 
 def test_suma_de_dos_numeros_encriptados():
@@ -46,12 +46,12 @@ def test_suma_de_dos_numeros_encriptados():
 
 
 def test_multiplicacion_de_un_numero_encriptado_por_numero_no_encriptado():
-    numero_a_encriptar_1 = 5
-    numero_2 = 5
+    numero_a_encriptar_1 = 5.16
+    numero_2 = 5.98
 
     cifrador_homomorfico_parcial = CifradorHomomorficoParcial()
     numero_encriptado_1 = cifrador_homomorfico_parcial.encriptar(numero_a_encriptar_1)
     multiplicacion_encriptada = numero_encriptado_1 * numero_2
     multiplicacion_desencriptada = cifrador_homomorfico_parcial.desencriptar(multiplicacion_encriptada)
 
-    assert multiplicacion_desencriptada == 25
+    assert multiplicacion_desencriptada == (numero_a_encriptar_1*numero_2)
