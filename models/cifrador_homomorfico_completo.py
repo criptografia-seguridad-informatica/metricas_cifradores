@@ -10,12 +10,14 @@ CKKS_PARAMS = {
     #  conversion: x_fix = round(x_float * scale)
     #  You can use this as default scale or use a different
     #  scale on each operation (set in HE.encryptFrac)
-    'qi_sizes': [60, 30, 30, 30, 60]  # Number of bits of each prime in the chain.
+    'qi_sizes': [60, 30, 30, 30, 60],  # Number of bits of each prime in the chain.
     # Intermediate values should be  close to log2(scale)
     # for each operation, to have small rounding errors.
+    'sec': 256
+
 }
 
-BFV_PARAMS = {'scheme': 'bfv', 'n': 2 ** 14, 't_bits': 20}
+BFV_PARAMS = {'scheme': 'bfv', 'n': 2 ** 14, 't_bits': 20, 'sec': 256}
 
 
 class CifradorHomomorficoCompleto:
